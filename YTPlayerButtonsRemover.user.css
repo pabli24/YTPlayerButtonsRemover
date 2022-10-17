@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           YouTube Player Buttons Remover
 @namespace      https://github.com/pabli24
-@version        1.0.0
+@version        1.1.0
 @description    Choose which buttons you want to remove from the YouTube Player
 @author         Pabli
 @license        MIT
@@ -9,82 +9,112 @@
 @supportURL     https://github.com/pabli24/YTPlayerButtonsRemover/issues
 @preprocessor   stylus
 
-@var            number   a0        "REMOVE: "                   [0,0,0]
-@var            number   a1        "■ --- GENERAL --- ■"        [1,1,1]
-@var            checkbox hideall   "Everything"                 0
-@var            checkbox gradient  "Gradient"                   0
+@var            number   a0        "REMOVE: "                     [0,0,0]
+@var            number   a1        "■ --- GENERAL --- ■"          [1,1,1]
+@var            checkbox hideall   "Everything"                   0
+@var            checkbox gradient  "Gradient"                     0
 
-@var            number   a2        "▲ --- PLAYER TOP --- ▲"     [2,2,2]
-@var            checkbox titlec    "Channel Logo"               0
-@var            checkbox titley    "Video title"                0
-@var            checkbox playlist  "Playlist"                   0
-@var            checkbox watchl    "Watch later"                0
-@var            checkbox share     "Share"                      0
-@var            checkbox copylink  "Copy link"                  0
-@var            checkbox cards     "Cards"                      0
-@var            checkbox cardst    "Cards teaser"               0
-@var            checkbox overflowb "Overflow button"            0
+@var            number   a2        "▲ --- PLAYER TOP --- ▲"       [2,2,2]
+@var            checkbox titlec    "Channel Logo"                 0
+@var            checkbox titley    "Video title"                  0
+@var            checkbox playlist  "Playlist"                     0
+@var            checkbox watchl    "Watch later"                  0
+@var            checkbox share     "Share"                        0
+@var            checkbox copylink  "Copy link"                    0
+@var            checkbox cards     "Cards"                        0
+@var            checkbox cardst    "Cards teaser"                 0
+@var            checkbox overflowb "Overflow button"              0
 
-@var            number   a3        "▼ --- PLAYER BOTTOM --- ▼"  [3,3,3]
-@var            checkbox morevideo "More videos"                0
-@var            checkbox anno      "Annotations"                0
-@var            checkbox prbar     "Progress bar"               0
+@var            number   a3        "▼ --- PLAYER BOTTOM --- ▼"    [3,3,3]
+@var            checkbox morevideo "More videos"                  0
+@var            checkbox anno      "Annotations"                  0
+@var            checkbox prbar     "Progress bar"                 0
 
-@var            number   a31       "◣ --- BOTTOM LEFT --- ◣"   [3.1,3.1,3.1]
-@var            checkbox prev      "Prev"                       0
-@var            checkbox play      "Play"                       0
-@var            checkbox next      "Next"                       0
-@var            checkbox vol       "Volume"                     0
-@var            checkbox timed     "Time"                       0
-@var            checkbox chapter   "View chapter"               0
+@var            number   a31       "◣ --- BOTTOM LEFT --- ◣"     [3.1,3.1,3.1]
+@var            checkbox prev      "Prev"                         0
+@var            checkbox play      "Play"                         0
+@var            checkbox next      "Next"                         0
+@var            checkbox vol       "Volume"                       0
+@var            checkbox timed     "Time"                         0
+@var            checkbox chapter   "View chapter"                 0
 
-@var            number   a32       "◢ --- BOTTOM RIGHT --- ◢"  [3.2,3.2,3.2]
-@var            checkbox autonav   "Autoplay"                   0
-@var            checkbox fuller    "Scroll for details"         0
-@var            checkbox subtitles "Subtitles"                  0
-@var            checkbox settings  "Settings"                   0
-@var            checkbox multicam  "Multicam"                   0
-@var            checkbox mplayer   "Miniplayer"                 0
-@var            checkbox pipb      "Picture in Picture"         0
-@var            checkbox sizeb     "Theater mode"               0
-@var            checkbox remote    "Play on TV"                 0
-@var            checkbox full      "Full screen"                0
+@var            number   a32       "◢ --- BOTTOM RIGHT --- ◢"    [3.2,3.2,3.2]
+@var            checkbox autonav   "Autoplay"                     0
+@var            checkbox fuller    "Scroll for details"           0
+@var            checkbox subtitles "Subtitles"                    0
+@var            checkbox settings  "Settings"                     0
+@var            checkbox multicam  "Multicam"                     0
+@var            checkbox mplayer   "Miniplayer"                   0
+@var            checkbox pipb      "Picture in Picture"           0
+@var            checkbox sizeb     "Theater mode"                 0
+@var            checkbox remote    "Play on TV"                   0
+@var            checkbox full      "Full screen"                  0
+
+@var            number   a4        "▼ --- UNDER THE PLAYER --- ▼" [4,4,4]
+@var            checkbox like      "Like/Dislike"                 0
+@var            checkbox share2    "Share*"                       0
+@var            checkbox download  "Download"                     0
+@var            checkbox thanks    "Thanks*"                      0
+@var            checkbox clip      "Clip*"                        0
+@var            checkbox save      "Save*"                        0
+@var            checkbox report    "Report*"                      0
+@var            checkbox sponsor   "Join"                         0
+@var            checkbox subs      "Subscribe/Subscribed"         0
+@var            checkbox subbed    "Subscribed*"                  0
+@var            checkbox ico       "Show icons only"              0
+@var            number   a41       "*Chrome/Edge 105+, Opera 91+ or your browser has to support ':has()' selector. Also set youtube language to: English, Spanish or Polish" [4.1,4.1,4.1]
 
 ==/UserStyle== */
 
 @-moz-document domain("youtube.com") {
-if hideall   {.ytp-chrome-bottom,.ytp-chrome-top,.annotation,.ytp-pause-overlay {display:none!important}}
-if gradient  {.ytp-gradient-top,.ytp-gradient-bottom                            {display:none!important}}
+n = none!important
+
+if hideall   {.ytp-chrome-bottom,.ytp-chrome-top,.annotation,.ytp-pause-overlay             {display:n}}
+if gradient  {.ytp-gradient-top,.ytp-gradient-bottom                                        {display:n}}
 //            .ytp-chrome-top
-if titlec    {.ytp-title-channel                                                {display:none!important}}
-if titley    {.ytp-title                                                        {display:none!important}}
-if playlist  {.ytp-playlist-menu-button                                         {display:none!important}}
-if watchl    {.ytp-watch-later-button                                           {display:none!important}}
-if share     {.ytp-share-button                                                 {display:none!important}}
-if copylink  {.ytp-copylink-button                                              {display:none!important}}
-if cards     {.ytp-cards-button                                                 {display:none!important}}
-if cardst    {.ytp-cards-teaser                                                 {display:none!important}}
-if overflowb {.ytp-overflow-button                                              {display:none!important}}
+if titlec    {.ytp-title-channel                                                            {display:n}}
+if titley    {.ytp-title                                                                    {display:n}}
+if playlist  {.ytp-playlist-menu-button                                                     {display:n}}
+if watchl    {.ytp-watch-later-button                                                       {display:n}}
+if share     {.ytp-share-button                                                             {display:n}}
+if copylink  {.ytp-copylink-button                                                          {display:n}}
+if cards     {.ytp-cards-button                                                             {display:n}}
+if cardst    {.ytp-cards-teaser                                                             {display:n}}
+if overflowb {.ytp-overflow-button                                                          {display:n}}
 //            .ytp-chrome-bottom
-if morevideo {.ytp-pause-overlay                                                {display:none!important}}
-if anno      {.annotation                                                       {display:none!important}}
-if prbar     {.ytp-progress-bar-container                                       {display:none!important}}
+if morevideo {.ytp-pause-overlay                                                            {display:n}}
+if anno      {.annotation                                                                   {display:n}}
+if prbar     {.ytp-progress-bar-container                                                   {display:n}}
 //            .ytp-left-controls
-if prev      {.ytp-prev-button                                                  {display:none!important}}
-if play      {.ytp-play-button                                                  {display:none!important}}
-if next      {.ytp-next-button                                                  {display:none!important}}
-if vol       {.ytp-volume-area                                                  {display:none!important}}
-if timed     {.ytp-time-display                                                 {display:none!important}}
-if chapter   {.ytp-chapter-container                                            {display:none!important}}
+if prev      {.ytp-prev-button                                                              {display:n}}
+if play      {.ytp-play-button                                                              {display:n}}
+if next      {.ytp-next-button                                                              {display:n}}
+if vol       {.ytp-volume-area                                                              {display:n}}
+if timed     {.ytp-time-display                                                             {display:n}}
+if chapter   {.ytp-chapter-container                                                        {display:n}}
 //            .ytp-right-controls
-if autonav   {[data-tooltip-target-id="ytp-autonav-toggle-button"]              {display:none!important}}
-if fuller    {.ytp-fullerscreen-edu-button                                      {display:none!important}}
-if subtitles {.ytp-subtitles-button                                             {display:none!important}}
-if settings  {.ytp-settings-button                                              {display:none!important}}
-if multicam  {.ytp-multicam-button                                              {display:none!important}}
-if mplayer   {.ytp-miniplayer-button                                            {display:none!important}}
-if pipb      {.ytp-pip-button                                                   {display:none!important}}
-if sizeb     {.ytp-size-button                                                  {display:none!important}}
-if remote    {.ytp-remote-button                                                {display:none!important}}
-if full      {.ytp-fullscreen-button                                            {display:none!important}}
+if autonav   {[data-tooltip-target-id="ytp-autonav-toggle-button"]                          {display:n}}
+if fuller    {.ytp-fullerscreen-edu-button                                                  {display:n}}
+if subtitles {.ytp-subtitles-button                                                         {display:n}}
+if settings  {.ytp-settings-button                                                          {display:n}}
+if multicam  {.ytp-multicam-button                                                          {display:n}}
+if mplayer   {.ytp-miniplayer-button                                                        {display:n}}
+if pipb      {.ytp-pip-button                                                               {display:n}}
+if sizeb     {.ytp-size-button                                                              {display:n}}
+if remote    {.ytp-remote-button                                                            {display:n}}
+if full      {.ytp-fullscreen-button                                                        {display:n}}
+//            .top-level-buttons
+ytd = '.top-level-buttons > ytd-button-renderer:has([aria-label*='
+if like      {.top-level-buttons > ytd-toggle-button-renderer                               {display:n}}
+if share2    {{ytd}{&"Share"]),&"Compartir"]),&"Udostępnij"])                               {display:n}}}
+if download  {.top-level-buttons > ytd-download-button-renderer                             {display:n}}
+if thanks    {{ytd}{&"Thanks"]),&"Gracias"]),&"Podziękuj"])                                 {display:n}}}
+if clip      {{ytd}{&"Clip"]),&"Klip"])                                                     {display:n}}}
+if save      {{ytd}{&"Save to playlist"]),&"Añadir"]),&"Zapisz na playliście"])             {display:n}}}
+if report    {{ytd}{&"Report"]),&"Denunciar"]),&"Zgłoś"])                                   {display:n}}}
+if sponsor   {#sponsor-button                                                               {display:n}}
+if subs      {#top-row #subscribe-button                                                    {display:n}}
+if subbed    {#top-row #subscribe-button:not(:has(#notification-preference-button[hidden])) {display:n}}
+if ico       {#info ytd-button-renderer yt-formatted-string                                 {display:n}}
+
 }
